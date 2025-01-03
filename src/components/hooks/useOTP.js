@@ -1,14 +1,16 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 
 export function useOTP() {
-  const [otp, setOTP] = useState('');
+  const navigate = useNavigate();
+  const [otp, setOTP] = useState("");
   const [timeLeft, setTimeLeft] = useState(30);
   const [canResend, setCanResend] = useState(false);
 
   useEffect(() => {
     if (timeLeft > 0) {
       const timer = setInterval(() => {
-        setTimeLeft(time => time - 1);
+        setTimeLeft((time) => time - 1);
       }, 1000);
       return () => clearInterval(timer);
     } else {
@@ -23,7 +25,7 @@ export function useOTP() {
   const handleResend = useCallback(() => {
     if (canResend) {
       // Add your resend OTP logic here
-      console.log('Resending OTP...');
+      console.log("Resending OTP...");
       setTimeLeft(30);
       setCanResend(false);
     }
@@ -32,8 +34,9 @@ export function useOTP() {
   const handleVerify = useCallback(() => {
     if (otp.length === 6) {
       // Add your verification logic here
-      console.log('Verifying OTP:', otp);
+      console.log("Verifying OTP:", otp);
     }
+    navigate("/dashboard");
   }, [otp]);
 
   return {
@@ -42,6 +45,6 @@ export function useOTP() {
     timeLeft,
     canResend,
     handleResend,
-    handleVerify
+    handleVerify,
   };
 }

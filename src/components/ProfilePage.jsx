@@ -1,23 +1,9 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function ProfilePage() {
   return (
     <div className="bg-gray-100 h-screen">
-      {/* Header */}
-      <header className="bg-blue-800 text-white flex justify-between items-center px-6 py-3">
-        <div className="text-lg font-bold">LOGO</div>
-        <nav className="flex space-x-6">
-          <a href="#" className="hover:underline">Business</a>
-          <a href="#" className="hover:underline">Users</a>
-          <a href="#" className="hover:underline">Terms & Condition</a>
-          <a href="#" className="hover:underline">Pricing</a>
-          <a href="#" className="hover:underline font-bold">Profile</a>
-        </nav>
-        <button className="bg-red-500 text-white px-4 py-2 rounded-md hover:bg-red-600">
-          Logout
-        </button>
-      </header>
-
       {/* Main Content */}
       <div className="p-6 grid grid-cols-3 gap-4">
         {/* Profile Section */}
@@ -48,9 +34,15 @@ export default function ProfilePage() {
               placeholder="Password"
               className="w-full border border-gray-300 px-4 py-2 rounded-md focus:ring-2 focus:ring-blue-500 focus:outline-none"
             />
-            <button className="bg-blue-800 text-white px-4 py-2 rounded-md hover:bg-blue-700">
+            <button className="bg-blue-800 w-full text-white px-4 py-2 rounded-md hover:bg-blue-700">
               CTA
             </button>
+            <Link
+              to={"/update-profile"}
+              className="text-blue-500 hover:underline"
+            >
+              Update Profile
+            </Link>
           </div>
         </div>
 
@@ -61,13 +53,27 @@ export default function ProfilePage() {
             <table className="min-w-full border border-gray-300">
               <thead>
                 <tr className="bg-gray-200">
-                  <th className="border border-gray-300 px-4 py-2 text-left">ID</th>
-                  <th className="border border-gray-300 px-4 py-2 text-left">LOGIN ID</th>
-                  <th className="border border-gray-300 px-4 py-2 text-left">IP Address</th>
-                  <th className="border border-gray-300 px-4 py-2 text-left">ISP</th>
-                  <th className="border border-gray-300 px-4 py-2 text-left">Date & Time</th>
-                  <th className="border border-gray-300 px-4 py-2 text-left">Logged in Duration</th>
-                  <th className="border border-gray-300 px-4 py-2 text-left">Action</th>
+                  <th className="border border-gray-300 px-4 py-2 text-left">
+                    ID
+                  </th>
+                  <th className="border border-gray-300 px-4 py-2 text-left">
+                    LOGIN ID
+                  </th>
+                  <th className="border border-gray-300 px-4 py-2 text-left">
+                    IP Address
+                  </th>
+                  <th className="border border-gray-300 px-4 py-2 text-left">
+                    ISP
+                  </th>
+                  <th className="border border-gray-300 px-4 py-2 text-left">
+                    Date & Time
+                  </th>
+                  <th className="border border-gray-300 px-4 py-2 text-left">
+                    Logged in Duration
+                  </th>
+                  <th className="border border-gray-300 px-4 py-2 text-left">
+                    Action
+                  </th>
                 </tr>
               </thead>
               <tbody>
@@ -75,9 +81,13 @@ export default function ProfilePage() {
                 <tr>
                   <td className="border border-gray-300 px-4 py-2">1</td>
                   <td className="border border-gray-300 px-4 py-2">user01</td>
-                  <td className="border border-gray-300 px-4 py-2">192.168.0.1</td>
+                  <td className="border border-gray-300 px-4 py-2">
+                    192.168.0.1
+                  </td>
                   <td className="border border-gray-300 px-4 py-2">ISP Name</td>
-                  <td className="border border-gray-300 px-4 py-2">01/02/2025 10:00 AM</td>
+                  <td className="border border-gray-300 px-4 py-2">
+                    01/02/2025 10:00 AM
+                  </td>
                   <td className="border border-gray-300 px-4 py-2">2 hours</td>
                   <td className="border border-gray-300 px-4 py-2">
                     <button className="bg-red-500 text-white px-2 py-1 rounded-md hover:bg-red-600">

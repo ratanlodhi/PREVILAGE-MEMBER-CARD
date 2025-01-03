@@ -1,21 +1,27 @@
-import React, { useState } from 'react';
-import { Eye, EyeOff } from 'lucide-react';
-import { InputField } from './InputField';
+import React, { useState } from "react";
+import { Eye, EyeOff } from "lucide-react";
+import { InputField } from "./InputField";
+import { Link } from "react-router-dom";
 
-export default function LoginForm({ onSubmit }) {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+function Form() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
+
+  const handleLogin = (email, password) => {
+    console.log("Login attempt:", { email, password });
+    // Handle login logic here
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onSubmit(email, password);
+    handleLogin(email, password);
   };
 
   return (
     <form onSubmit={handleSubmit} className="w-full max-w-sm space-y-4">
       <h1 className="text-2xl font-bold text-center mb-8">Login Screen</h1>
-      
+
       <InputField
         label="Email"
         type="email"
@@ -31,7 +37,7 @@ export default function LoginForm({ onSubmit }) {
         </label>
         <div className="relative">
           <input
-            type={showPassword ? 'text' : 'password'}
+            type={showPassword ? "text" : "password"}
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className="w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -48,12 +54,26 @@ export default function LoginForm({ onSubmit }) {
         </div>
       </div>
 
-      <button
-        type="submit"
-        className="w-full bg-black text-white py-2 px-4 rounded-md hover:bg-gray-800 transition duration-200"
-      >
-        Sign In
-      </button>
+      <Link to={"/otp"}>
+        <button
+          type="submit"
+          className="mt-4 w-full bg-black text-white py-2 px-4 rounded-md hover:bg-gray-800 transition duration-200"
+        >
+          Sign In
+        </button>
+      </Link>
     </form>
   );
 }
+
+const LoginForm = () => {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-[#B8C4C2]">
+      <div className="w-full max-w-md p-8 mx-4">
+        <Form />
+      </div>
+    </div>
+  );
+};
+
+export default LoginForm;

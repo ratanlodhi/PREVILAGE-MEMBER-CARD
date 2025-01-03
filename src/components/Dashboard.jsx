@@ -4,16 +4,6 @@ export default function Dashboard() {
   return (
     <div className="bg-gray-100 h-screen">
       {/* Header */}
-      <header className="bg-blue-800 text-white flex justify-between items-center px-6 py-3">
-        <div className="text-lg font-bold">LOGO</div>
-        <nav className="flex space-x-6">
-          <a href="#" className="hover:underline">Business</a>
-          <a href="#" className="hover:underline">Users</a>
-          <a href="#" className="hover:underline">Terms & Condition</a>
-          <a href="#" className="hover:underline">Pricing</a>
-          <a href="#" className="hover:underline">Profile</a>
-        </nav>
-      </header>
 
       {/* Main Content */}
       <div className="p-6">
